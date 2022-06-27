@@ -1,37 +1,18 @@
-import { Link } from "react-router-dom";
 import { Gameboy } from "../../components/Gameboy";
-import pixelPokemonLogo from "../../assets/images/pixelPokemonLogo.png";
-import pikachu from "../../assets/images/pikachu.png";
+import pikachu from "../../assets/images/pikachuStartScreen.gif";
 
 export const Start = () => {
   return (
     <Gameboy>
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "#dad7cd",
-          borderRadius: "10px",
-        }}
-      >
-        <img style={{ width: "50%", height: "30%" }} src={pixelPokemonLogo} />
-        <Link
-          to="/pokemonForge"
+      <div>
+        <img
           style={{
-            fontFamily: "VT323",
-            fontSize: "25px",
-            backgroundColor: "#dad7cd",
-            cursor: "pointer",
-            border: "none",
+            position: "absolute",
+            height: "100%",
+            objectFit: "contain",
           }}
-        >
-          START
-        </Link>
-        <img style={{ width: "30%", height: "40%" }} src={pikachu} />
+          src={pikachu}
+        />
       </div>
     </Gameboy>
   );
