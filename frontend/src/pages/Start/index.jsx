@@ -18,7 +18,17 @@ export const Start = () => {
         }}
       >
         <img style={{ width: "50%", height: "30%" }} src={pixelPokemonLogo} />
-        <button> START </button>
+        <button
+          style={{
+            fontFamily: "VT323",
+            fontSize: "25px",
+            backgroundColor: "#dad7cd",
+            cursor: "pointer",
+            border: "none",
+          }}
+        >
+          START
+        </button>
         <img style={{ width: "30%", height: "40%" }} src={pikachu} />
       </div>
     </Gameboy>

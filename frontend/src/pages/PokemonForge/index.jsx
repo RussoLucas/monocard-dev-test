@@ -1,9 +1,6 @@
 import { Forge } from "../../components/Forge";
+import { Gameboy } from "../../components/Gameboy";
 
 export const PokemonForge = () => {
-  return (
-    <div>
-      <Forge></Forge>
-    </div>
-  );
+  return <Gameboy></Gameboy>;
 };
