@@ -1,6 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
 import appRoutes from "./routes/app.routes";
-import { Start } from "./pages/Start";
 
 function App() {
   return (

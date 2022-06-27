@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Gameboy } from "../../components/Gameboy";
 import pixelPokemonLogo from "../../assets/images/pixelPokemonLogo.png";
 import pikachu from "../../assets/images/pikachu.png";
@@ -18,7 +19,8 @@ export const Start = () => {
         }}
       >
         <img style={{ width: "50%", height: "30%" }} src={pixelPokemonLogo} />
-        <button
+        <Link
+          to="/pokemonForge"
           style={{
             fontFamily: "VT323",
             fontSize: "25px",
@@ -28,7 +30,7 @@ export const Start = () => {
           }}
         >
           START
-        </button>
+        </Link>
         <img style={{ width: "30%", height: "40%" }} src={pikachu} />
       </div>
     </Gameboy>
