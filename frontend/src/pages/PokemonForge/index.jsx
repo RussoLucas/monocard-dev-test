@@ -64,7 +64,7 @@ export function PokemonForge() {
               HT:{pokemon.height}
             </div>
             <div style={{ marginTop: 10, fontSize: 10 }}>
-              WT:{pokemon.weight}
+              WT:{pokemon.weight}lb
             </div>
           </div>
         </>

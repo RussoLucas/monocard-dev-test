@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Menu } from "../Menu";
 import "./styles.css";
 
 export const Gameboy = ({ children }) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [showMenu, toggleMenu] = useState(false);
+
+  const allowShowMenu = () => {
+    if (pathname !== "/game-view") return;
+
+    toggleMenu(!showMenu);
+  };
 
   return (
     <div style={{ transform: "scale(2)" }}>
@@ -64,7 +72,7 @@ export const Gameboy = ({ children }) => {
 
         <div id="SSbtns">
           <ul>
-            <li onClick={() => toggleMenu(!showMenu)}></li>
+            <li onClick={allowShowMenu}></li>
             <li onClick={() => navigate("/game-view")}></li>
           </ul>
         </div>

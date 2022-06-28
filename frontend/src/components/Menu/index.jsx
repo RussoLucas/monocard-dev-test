@@ -27,11 +27,13 @@ export function Menu({ toggleMenu }) {
       />
       <div
         style={{
+          width: "100%",
           zIndex: 1,
           fontSize: 10,
           display: "flex",
           flexDirection: "column",
           paddingTop: 10,
+          paddingLeft: 10,
         }}
       >
         <div
@@ -46,7 +48,12 @@ export function Menu({ toggleMenu }) {
         >
           GERAR POKéMON
         </div>
-        <div style={{ zIndex: 2, marginTop: 5, fontSize: 8 }}>POKéDEX</div>
+        <div
+          style={{ zIndex: 2, marginTop: 8, fontSize: 8 }}
+          onClick={() => redirect("/pokemon-list")}
+        >
+          POKéDEX
+        </div>
       </div>
     </div>
   );
