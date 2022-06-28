@@ -1,9 +1,12 @@
 import express from "express";
 import axios from "axios";
+import cors from "cors";
 
 const app = express();
 
 const port = 8000;
+
+app.use(cors());
 
 app.get("/generate-random-pokemon", async (req, res) => {
   try {
@@ -17,6 +20,10 @@ app.get("/generate-random-pokemon", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+app.post("/rename-pokemon", (req, res) => {
+  res.send("rename");
 });
 
 app.get("/list-pokemons", (req, res) => {
