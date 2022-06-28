@@ -6,15 +6,11 @@ export function PokemonForge() {
 
   const getPokemon = async () => {
     try {
-      const {
-        data: { name, sprites, id, weight, height, types },
-      } = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${
-          Math.floor(Math.random() * 151) + 1
-        }`
+      const { data } = await axios.get(
+        "http://localhost:8000/generate-random-pokemon"
       );
 
-      setPokemon({ name, sprites, id, weight, height, types });
+      setPokemon(data);
     } catch (error) {
       console.error(error.response.data);
     }
