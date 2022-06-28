@@ -37,7 +37,6 @@ export function PokemonForge() {
     >
       {pokemon && (
         <>
-          {console.log(pokemon)}
           <div
             style={{
               width: "40%",
