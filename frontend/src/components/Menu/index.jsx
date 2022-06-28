@@ -13,7 +13,7 @@ export function Menu({ toggleMenu }) {
   return (
     <div
       style={{
-        width: "80px",
+        width: "100px",
         height: "120px",
         backgroundColor: "#fff",
         position: "absolute",
@@ -24,7 +24,7 @@ export function Menu({ toggleMenu }) {
       <img
         style={{ position: "absolute", width: "100%", height: "100%" }}
         src={MenuBorder}
-      ></img>
+      />
       <div
         style={{
           zIndex: 1,
@@ -35,12 +35,18 @@ export function Menu({ toggleMenu }) {
         }}
       >
         <div
-          style={{ backgroundColor: "red", zIndex: 2 }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            fontSize: 8,
+          }}
           onClick={() => redirect("/pokemon-forge")}
         >
           GERAR POKéMON
         </div>
-        <div style={{ marginTop: 5 }}>POKéDEX</div>
+        <div style={{ zIndex: 2, marginTop: 5, fontSize: 8 }}>POKéDEX</div>
       </div>
     </div>
   );
