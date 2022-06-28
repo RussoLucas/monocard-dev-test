@@ -9,6 +9,6 @@ export const GameView = () => {
         background: `url(${GameViewBackground})`,
         backgroundSize: "cover",
       }}
-    ></div>
+    />
   );
 };

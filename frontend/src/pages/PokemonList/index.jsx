@@ -14,6 +14,14 @@ export const PokemonList = () => {
     }
   };
 
+  const renamePokemon = async (id) => {
+    try {
+      const { data } = await axios.post("http://localhost:8000/rename-pokemon");
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
+
   useEffect(() => {
     getPokemonList();
   }, []);
@@ -40,6 +48,7 @@ export const PokemonList = () => {
                 marginTop: 7,
                 fontSize: 10,
                 display: "flex",
+                zIndex: 2,
               }}
             >
               <img
@@ -56,11 +65,16 @@ export const PokemonList = () => {
                   flexDirection: "column",
                 }}
               >
-                <span style={{ fontSize: 8 }}>
-                  {pokemon.name.toUpperCase()}
-                </span>
+                <div style={{ cursor: "pointer" }}>
+                  <form onSubmit={() => console.log("aqui")}>
+                    <input
+                      style={{ fontSize: 8, border: "none", width: "95%" }}
+                      placeholder={pokemon.name}
+                    />
+                  </form>
+                </div>
                 <br></br>
-                <div style={{ display: "flex", fontSize: 8 }}>
+                <div style={{ display: "flex", fontSize: 7, paddingLeft: 3 }}>
                   <span style={{ marginRight: 5 }}> HT {pokemon.height}</span>
                   <span> WT {pokemon.weight}lb</span>
                 </div>

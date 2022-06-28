@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu } from "../Menu";
 import "./styles.css";
 
@@ -11,9 +10,7 @@ export const Gameboy = ({ children }) => {
   const [showMenu, toggleMenu] = useState(false);
 
   const allowShowMenu = () => {
-    if (pathname !== "/game-view") return;
-
-    toggleMenu(!showMenu);
+    if (pathname !== "/") toggleMenu(!showMenu);
   };
 
   return (

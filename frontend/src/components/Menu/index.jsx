@@ -19,6 +19,7 @@ export function Menu({ toggleMenu }) {
         position: "absolute",
         top: 0,
         right: 0,
+        zIndex: 3,
       }}
     >
       <img
@@ -28,7 +29,7 @@ export function Menu({ toggleMenu }) {
       <div
         style={{
           width: "100%",
-          zIndex: 1,
+          zIndex: 3,
           fontSize: 10,
           display: "flex",
           flexDirection: "column",
@@ -41,15 +42,16 @@ export function Menu({ toggleMenu }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            zIndex: 2,
+            zIndex: 3,
             fontSize: 8,
+            cursor: "pointer",
           }}
           onClick={() => redirect("/pokemon-forge")}
         >
           GERAR POKéMON
         </div>
         <div
-          style={{ zIndex: 2, marginTop: 8, fontSize: 8 }}
+          style={{ zIndex: 3, marginTop: 8, fontSize: 8, cursor: "pointer" }}
           onClick={() => redirect("/pokemon-list")}
         >
           POKéDEX
