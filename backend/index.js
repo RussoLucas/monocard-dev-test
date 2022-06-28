@@ -1,22 +1,22 @@
-import express from "express";
 import axios from "axios";
-import cors from "cors";
-
-const app = express();
-
-const port = 8000;
-
-app.use(cors());
+import { nanoid } from "nanoid";
+import app from "./app.js";
+import storeData from "./utils/storeData.js";
+import readStoredData from "./utils/readStoredData.js";
 
 app.get("/generate-random-pokemon", async (req, res) => {
   try {
     const {
-      data: { name, sprites, id, weight, height, types },
+      data: { name, sprites, id: pokemonId, weight, height, types },
     } = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 151) + 1}`
     );
 
-    res.json({ name, sprites, id, weight, height, types });
+    const id = nanoid();
+
+    storeData({ id: id, name, sprites, pokemonId, weight, height, types });
+
+    res.json({ name, sprites, pokemonId, weight, height, types });
   } catch (error) {
     console.error(error);
   }
@@ -27,9 +27,7 @@ app.post("/rename-pokemon", (req, res) => {
 });
 
 app.get("/list-pokemons", (req, res) => {
-  res.send("lista");
-});
+  const storedData = readStoredData();
 
-app.listen(port, () => {
-  console.log(`app listen on port ${port}`);
+  res.send(storedData);
 });
