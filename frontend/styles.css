@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "PokemonGb";
+  src: url("./src/assets/fonts/PokemonGb.ttf") format("opentype");
+}
+
+* {
+  font-family: PokemonGb !important;
+}

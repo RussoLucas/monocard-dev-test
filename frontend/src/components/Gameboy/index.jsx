@@ -1,8 +1,15 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Menu } from "../Menu";
 import "./styles.css";
 
-export const Gameboy = (props) => {
+export const Gameboy = ({ children }) => {
+  const navigate = useNavigate();
+
+  const [showMenu, toggleMenu] = useState(false);
+
   return (
-    <div style={{ transform: "scale(1.8)" }}>
+    <div style={{ transform: "scale(2)" }}>
       <br></br>
       <br></br>
 
@@ -15,7 +22,10 @@ export const Gameboy = (props) => {
         <div id="volume"></div>
         <div id="screenWrapper">
           <div id="screenReflection"></div>
-          <div id="screen">{props.children}</div>
+          <div id="screen">
+            {children}
+            {showMenu && <Menu toggleMenu={toggleMenu} />}
+          </div>
           <div id="logo">
             <span className="logoName">
               <i>GAMEBOY</i>
@@ -54,8 +64,8 @@ export const Gameboy = (props) => {
 
         <div id="SSbtns">
           <ul>
-            <li></li>
-            <li></li>
+            <li onClick={() => toggleMenu(!showMenu)}></li>
+            <li onClick={() => navigate("/game-view")}></li>
           </ul>
         </div>
       </div>

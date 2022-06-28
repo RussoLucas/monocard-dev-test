@@ -1,6 +1,7 @@
 import { Start } from "../pages/Start";
-import { PokemonForge } from "../pages/PokemonForge";
+import { GameView } from "../pages/GameView";
 import { PokemonList } from "../pages/PokemonList";
+import { PokemonForge } from "../pages/PokemonForge";
 
 export default [
   {
@@ -8,11 +9,15 @@ export default [
     component: <Start />,
   },
   {
-    name: "/pokemonForge",
+    name: "/game-view",
+    component: <GameView />,
+  },
+  {
+    name: "/pokemon-forge",
     component: <PokemonForge />,
   },
   {
-    name: "/pokemonList",
+    name: "/pokemon-list",
     component: <PokemonList />,
   },
 ];

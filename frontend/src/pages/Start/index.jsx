@@ -1,19 +1,16 @@
-import { Gameboy } from "../../components/Gameboy";
-import pikachu from "../../assets/images/pikachuStartScreen.gif";
+import pikachuStartScreen from "../../assets/images/pikachu-start-screen.gif";
 
 export const Start = () => {
   return (
-    <Gameboy>
-      <div>
-        <img
-          style={{
-            position: "absolute",
-            height: "100%",
-            objectFit: "contain",
-          }}
-          src={pikachu}
-        />
-      </div>
-    </Gameboy>
+    <div>
+      <img
+        style={{
+          position: "absolute",
+          height: "100%",
+          objectFit: "contain",
+        }}
+        src={pikachuStartScreen}
+      />
+    </div>
   );
 };
