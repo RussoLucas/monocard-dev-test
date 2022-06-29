@@ -1,6 +1,5 @@
 import fs from "fs";
 import readStoredData from "./readStoredData.js";
-import storeData from "./storeData.js";
 
 const renamePokemon = (id, newPokemonName) => {
   const storedData = readStoredData();
@@ -14,7 +13,7 @@ const renamePokemon = (id, newPokemonName) => {
   console.log(storedData);
 
   fs.writeFile(
-    "./pokemonDb/pokemons.json",
+    "./src/pokemonDb/pokemons.json",
     JSON.stringify(storedData),
     (err) => {
       if (err) return console.log(err);

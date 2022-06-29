@@ -14,9 +14,13 @@ const storeData = (data) => {
 
   pokemons.push(data);
 
-  fs.writeFile("./pokemonDb/pokemons.json", JSON.stringify(pokemons), (err) => {
-    if (err) return console.log(err);
-  });
+  fs.writeFile(
+    "./src/pokemonDb/pokemons.json",
+    JSON.stringify(pokemons),
+    (err) => {
+      if (err) return console.log(err);
+    }
+  );
 };
 
 export default storeData;
