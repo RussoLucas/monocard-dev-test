@@ -70,8 +70,12 @@ Após estes passos basta acessar o localhost:3000 em seu navegador :)
 
 
 ## ☕ Usando <Monocard Dev Test>
+ 
+Navegador recomendado: Google Chrome
 
 Para usar <Monocard Dev Test>, siga estas etapas:
+
+*Acesse o endereço localhost:3000
 
 *Ao abrir a página você será direcionado para a tela inicial do projeto. Pressione o botão de START para ir para tela GameView;
 
