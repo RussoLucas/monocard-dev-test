@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import app from "./app.js";
 import storeData from "./utils/storeData.js";
 import readStoredData from "./utils/readStoredData.js";
+import renamePokemon from "./utils/renamePokemon.js";
 
 app.get("/generate-random-pokemon", async (req, res) => {
   try {
@@ -23,7 +24,13 @@ app.get("/generate-random-pokemon", async (req, res) => {
 });
 
 app.post("/rename-pokemon", (req, res) => {
-  res.send("rename");
+  const storedData = readStoredData();
+
+  const { id, newPokemonName } = req.body;
+
+  renamePokemon(id, newPokemonName);
+
+  res.send("ok");
 });
 
 app.get("/list-pokemons", (req, res) => {
