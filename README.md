@@ -22,7 +22,7 @@ Para instalar o <Monocard Dev Test>, siga estas etapas:
 O primeiro passo para instalar o projeto em sua máquina será clonar o repositório. Caso tenha o Git instalado basta executar o seguinte comando na pasta desejada
 
 ```
-git clone https://github.com/<seu-nome-no-github>/monocard-dev-test.git
+git clone https://github.com/RussoLucas/monocard-dev-test.git
 ```
 
 Após clonar o projeto será possível observar a existência de duas pastas:
