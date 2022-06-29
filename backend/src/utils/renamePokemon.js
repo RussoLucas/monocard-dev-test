@@ -10,8 +10,6 @@ const renamePokemon = (id, newPokemonName) => {
     }
   });
 
-  console.log(storedData);
-
   fs.writeFile(
     "./src/pokemonDb/pokemons.json",
     JSON.stringify(storedData),
