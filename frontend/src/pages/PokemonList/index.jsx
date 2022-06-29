@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {
+  Container,
+  ListItem,
+  PokemonInfoContainer,
+  PokemonName,
+  PokemonInfo,
+  NoDataContainer,
+} from "./styles.js";
 
 export const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState();
+  const [newPokemonName, setNewPokemonName] = useState();
+  const [reload, setReload] = useState(false);
 
   const getPokemonList = async () => {
     try {
@@ -14,9 +24,18 @@ export const PokemonList = () => {
     }
   };
 
+  const handleInputChange = (event) => {
+    setNewPokemonName(event.target.value);
+  };
+
   const renamePokemon = async (id) => {
     try {
-      const { data } = await axios.post("http://localhost:8000/rename-pokemon");
+      const { data } = await axios.post(
+        "http://localhost:8000/rename-pokemon",
+        { id, newPokemonName }
+      );
+
+      setReload(true);
     } catch (error) {
       console.error(error.response.data);
     }
@@ -24,33 +43,14 @@ export const PokemonList = () => {
 
   useEffect(() => {
     getPokemonList();
-  }, []);
+  }, [reload]);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#fff",
-        overflow: "auto",
-      }}
-    >
+    <Container>
       {pokemonList && pokemonList.length > 0 ? (
         pokemonList.map((pokemon) => {
           return (
-            <div
-              key={pokemon.id}
-              style={{
-                width: "100%",
-                height: 40,
-                marginTop: 7,
-                fontSize: 10,
-                display: "flex",
-                zIndex: 2,
-              }}
-            >
+            <ListItem key={pokemon.id}>
               <img
                 style={{ height: "100%" }}
                 src={
@@ -58,33 +58,34 @@ export const PokemonList = () => {
                     .front_transparent
                 }
               />
-              <div
-                style={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              <PokemonInfoContainer>
                 <div style={{ cursor: "pointer" }}>
-                  <form onSubmit={() => console.log("aqui")}>
-                    <input
-                      style={{ fontSize: 8, border: "none", width: "95%" }}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      renamePokemon(pokemon.id);
+                    }}
+                    onBlur={() => renamePokemon(pokemon.id)}
+                  >
+                    <PokemonName
+                      type="text"
                       placeholder={pokemon.name}
+                      onChange={(event) => handleInputChange(event)}
                     />
                   </form>
                 </div>
                 <br></br>
-                <div style={{ display: "flex", fontSize: 7, paddingLeft: 3 }}>
+                <PokemonInfo>
                   <span style={{ marginRight: 5 }}> HT {pokemon.height}</span>
                   <span> WT {pokemon.weight}lb</span>
-                </div>
-              </div>
-            </div>
+                </PokemonInfo>
+              </PokemonInfoContainer>
+            </ListItem>
           );
         })
       ) : (
-        <div style={{ fontSize: 10, marginTop: 10 }}>your pokédex is empty</div>
+        <NoDataContainer>your pokédex is empty</NoDataContainer>
       )}
-    </div>
+    </Container>
   );
 };

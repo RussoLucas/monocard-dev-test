@@ -1,22 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import appRoutes from "./routes/app.routes";
-import wallpaper from "./assets/images/wallpaper.jpg";
 import { Gameboy } from "./components/Gameboy";
+import { Container } from "./styles.js";
 
 function App() {
   return (
-    <div
-      className="App"
-      style={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundImage: `url(${wallpaper})`,
-        backgroundSize: "cover",
-      }}
-    >
+    <Container className="App">
       <Gameboy>
         <Routes>
           {appRoutes.map((el) => {
@@ -31,7 +20,7 @@ function App() {
           })}
         </Routes>
       </Gameboy>
-    </div>
+    </Container>
   );
 }
 

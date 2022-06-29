@@ -1,16 +1,10 @@
 import pikachuStartScreen from "../../assets/images/pikachu-start-screen.gif";
+import { StyledImg } from "./styles.js";
 
 export const Start = () => {
   return (
     <div>
-      <img
-        style={{
-          position: "absolute",
-          height: "100%",
-          objectFit: "contain",
-        }}
-        src={pikachuStartScreen}
-      />
+      <StyledImg src={pikachuStartScreen} />
     </div>
   );
 };

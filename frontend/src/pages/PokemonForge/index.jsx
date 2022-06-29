@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Container, ImgContainer } from "./styles";
 
 export function PokemonForge() {
   const [pokemon, setPokemon] = useState();
@@ -21,26 +22,10 @@ export function PokemonForge() {
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container>
       {pokemon && (
         <>
-          <div
-            style={{
-              width: "40%",
-              height: "90%",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
+          <ImgContainer>
             <img
               style={{ width: "100%" }}
               src={
@@ -48,7 +33,7 @@ export function PokemonForge() {
                   .front_transparent
               }
             />
-          </div>
+          </ImgContainer>
           <div style={{ width: "60%", height: "90%" }}>
             <div style={{ marginTop: 15, fontSize: 10 }}>
               NAME:
@@ -69,6 +54,6 @@ export function PokemonForge() {
           </div>
         </>
       )}
-    </div>
+    </Container>
   );
 }
