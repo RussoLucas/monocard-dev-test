@@ -1,5 +1,6 @@
-import { Container } from "./styles";
+import React from 'react';
+import Container from './styles';
 
-export const GameView = () => {
-  return <Container />;
-};
+export default function GameView() {
+    return <Container />;
+}

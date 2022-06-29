@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledImg = styled.img`
-  position: absolute;
-  height: 100%;
-  object-fit: contain;
+const StyledImg = styled.img`
+    position: absolute;
+    height: 100%;
+    object-fit: contain;
 `;
+
+export default StyledImg;

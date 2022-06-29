@@ -1,10 +1,11 @@
-import pikachuStartScreen from "../../assets/images/pikachu-start-screen.gif";
-import { StyledImg } from "./styles.js";
+import React from 'react';
+import pikachuStartScreen from '../../assets/images/pikachu-start-screen.gif';
+import StyledImg from './styles';
 
-export const Start = () => {
-  return (
-    <div>
-      <StyledImg src={pikachuStartScreen} />
-    </div>
-  );
-};
+export default function Start() {
+    return (
+        <div>
+            <StyledImg src={pikachuStartScreen} />
+        </div>
+    );
+}
