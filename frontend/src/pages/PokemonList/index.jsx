@@ -25,10 +25,12 @@ export const PokemonList = () => {
   };
 
   const handleInputChange = (event) => {
-    setNewPokemonName(event.target.value);
+    setNewPokemonName(event.target.value.trim());
   };
 
   const renamePokemon = async (id) => {
+    if (!!!newPokemonName) return;
+
     try {
       const { data } = await axios.post(
         "http://localhost:8000/rename-pokemon",

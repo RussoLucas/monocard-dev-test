@@ -1,11 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import appRoutes from "./routes/app.routes";
 import { Gameboy } from "./components/Gameboy";
-import { Container } from "./styles.js";
+import wallpaper from "./assets/images/wallpaper.jpg";
+import "./styles.css";
 
 function App() {
   return (
-    <Container className="App">
+    <div
+      id="App"
+      className="App"
+      style={{ backgroundImage: `url(${wallpaper})` }}
+    >
       <Gameboy>
         <Routes>
           {appRoutes.map((el) => {
@@ -20,7 +25,7 @@ function App() {
           })}
         </Routes>
       </Gameboy>
-    </Container>
+    </div>
   );
 }
 

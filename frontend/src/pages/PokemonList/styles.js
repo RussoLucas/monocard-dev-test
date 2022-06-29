@@ -28,6 +28,7 @@ export const PokemonName = styled.input`
   font-size: 8px;
   border: none;
   width: 95%;
+  font-family: "PokemonGb";
 `;
 
 export const PokemonInfo = styled.div`
